@@ -58,6 +58,9 @@ code {
   border: 4px solid black;
   box-shadow: 0 5px 0 rgba(0, 0, 0, 0.4);
   transition: opacity 2s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .Symbol:hover {
   cursor: pointer;
@@ -85,8 +88,8 @@ code {
   top: 31vmin;
 }
 .Symbol > img {
-  width: 100%;
-  height: 100%;
+  width: 102%;
+  height: 102%;
 }
 .hidden {
   opacity: 0;
