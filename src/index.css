@@ -1,13 +1,106 @@
+html,
+body,
+#root {
+  height: 100%;
+}
+
+* > * {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: floralwhite;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.App {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.QuizContainer {
+  width: 90vmin;
+  height: 90vmin;
+  position: relative;
+}
+
+.Score {
+  width: 30vmin;
+  position: absolute;
+  left: 30vmin;
+  top: 30vmin;
+  height: 30vmin;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 5rem;
+}
+
+.Symbol {
+  background-color: white;
+  width: 28vmin;
+  height: 28vmin;
+  position: absolute;
+  border-radius: 5px;
+  overflow: hidden;
+  border: 4px solid black;
+  box-shadow: 0 5px 0 rgba(0, 0, 0, 0.4);
+  transition: opacity 2s;
+}
+.Symbol:hover {
+  cursor: pointer;
+  box-shadow: 0 5px 0 rgba(0, 0, 0, 0.6);
+}
+.Symbol:active {
+  margin-top: 2px;
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.6);
+}
+.Symbol.top {
+  top: 0;
+  left: 31vmin;
+}
+.Symbol.right {
+  right: 0;
+  top: 31vmin;
+}
+.Symbol.bottom {
+  top: 62vmin;
+  left: 31vmin;
+  pointer-events: none;
+}
+.Symbol.left {
+  left: 0;
+  top: 31vmin;
+}
+.Symbol > img {
+  width: 100%;
+  height: 100%;
+}
+.hidden {
+  opacity: 0;
+}
+
+.Debug {
+  position: absolute;
+  color: white;
+  top: 0;
+  left: 0;
+  font-size: 0.8em;
+  font-weight: bold;
+  background: rgba(0, 0, 0, 0.25);
+  width: 100%;
+  height: 100%;
+  padding: 5px;
 }
