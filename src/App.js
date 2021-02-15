@@ -127,6 +127,7 @@ const firstPuzzle = generatePuzzle();
 function App() {
   const [state, setState] = useState({
     score: 0,
+    game: 0,
     ...firstPuzzle,
   });
 
@@ -135,6 +136,7 @@ function App() {
     setState((s) => {
       const score = position === s.correctPosition ? s.score + 1 : 0;
       return {
+        game: s.game + 1,
         score,
         ...nextPuzzle,
       };
@@ -149,6 +151,7 @@ function App() {
           return (
             <Symbol
               key={symbol.id + position}
+              game={state.game}
               position={position}
               symbol={symbol}
               onClick={handleClick(position)}
@@ -164,9 +167,28 @@ function App() {
 
 export default App;
 
-function Symbol({ position, symbol, onClick, debug = false }) {
+function Symbol({ game, position, symbol, onClick, debug = false }) {
+  const [hidden, setHidden] = useState(true);
+
+  useEffect(() => {
+    if (position === "top") {
+      console.log("triggered", game, new Date());
+    }
+    setHidden(true);
+    const ms = position === "bottom" ? 250 : Math.random() * 1800 + 400;
+    const to = setTimeout(() => {
+      setHidden(false);
+    }, ms);
+    return () => clearTimeout(to);
+  }, [game]);
+
+  let classes = ["Symbol", position];
+  if (hidden) {
+    classes = [...classes, "hidden"];
+  }
+
   return (
-    <div className={["Symbol", position].join(" ")} onClick={onClick}>
+    <div className={classes.join(" ")} onClick={onClick}>
       <img src={symbol.img} alt={symbol.ID} />
       {debug && (
         <div className="Debug">

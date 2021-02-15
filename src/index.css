@@ -57,7 +57,7 @@ code {
   overflow: hidden;
   border: 4px solid black;
   box-shadow: 0 5px 0 rgba(0, 0, 0, 0.4);
-  transition: opacity 2s;
+  transition: opacity 1.5s;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -93,6 +93,7 @@ code {
 }
 .hidden {
   opacity: 0;
+  transition: none;
 }
 
 .Debug {
