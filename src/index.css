@@ -30,6 +30,12 @@ code {
   height: 100%;
 }
 
+.kofiContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
 .QuizContainer {
   width: 90vmin;
   height: 90vmin;
